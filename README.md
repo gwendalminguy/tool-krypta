@@ -13,6 +13,7 @@ The project contains several files, which are the following:
 | Files | Description |
 | :---- | :---------- |
 | [`methods.py`](https://github.com/gwendalminguy/tool-krypta/blob/main/methods.py) | The python file containing all methods. |
+| [`requirements.txt`](https://github.com/gwendalminguy/tool-krypta/blob/main/requirements.txt) | The text file listing requirements for installation. |
 | [`script.py`](https://github.com/gwendalminguy/tool-krypta/blob/main/script.py) | The python file containing the script. |
 
 ## ⚙️ Installation
@@ -55,10 +56,10 @@ $ ./script.py
 
 ### Methods:
 
-Several methods can be used to encrypt or decrypt a message with Krypta. The currently supported methods and their ... are the following:
+Several methods can be used to encrypt or decrypt a message with Krypta. The currently supported methods and the way they work are the following:
 
-| Files | Description |
+| Methods | Description |
 | :---- | :---------- |
-| [`ROT13`](https://en.wikipedia.org/wiki/ROT13) | ... |
-| [`Caesar`](https://en.wikipedia.org/wiki/Caesar_cipher) | ... |
-| [`Vigenère`](https://en.wikipedia.org/wiki/Vigenère_cipher) | ... |
+| [`ROT13`](https://en.wikipedia.org/wiki/ROT13) | Shifts each letter of a text by 13 places. |
+| [`Caesar`](https://en.wikipedia.org/wiki/Caesar_cipher) | Shifts each letter of a text using a given numeric key. |
+| [`Vigenère`](https://en.wikipedia.org/wiki/Vigenère_cipher) | Shifts each letter of a text using a given text key. |
