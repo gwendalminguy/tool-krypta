@@ -25,19 +25,19 @@ $ git clone https://github.com/gwendalminguy/tool-krypta.git
 
 ## 🖥️ Usage
 
-Krypta can be launched using the following commands:
+Krypta can be launched using the following command:
 
 ```
 $ ./script.py -a <action> -m <method>
 ```
 
-The user will be prompted for a text, then a key (if required by the chosen method). The text will then be encrypted or decrypted, and the result will be printed to the terminal.
+The user will be prompted for a text (the message to encrypt or decrypt), then a key (if required by the chosen method). The *caesar* method requires a numeric key, while the *vigenere* method requires a textual key. The text will then be encrypted or decrypted, and the result will be printed to the terminal.
 
 ### Action:
 
 Krypta can be used to *encrypt* or *decrypt* a text message. In order to choose the action to execute, it can be called as a command-line argument with **-a** or **--action**, followed by either *encrypt* or *decrypt*. If not specified, the default action is set to be *encrypt*.
 
-### Methods:
+### Method:
 
 Several methods can be used to encrypt or decrypt a message with Krypta. In order to choose the method to use, it can be called as a command-line argument with **-m** or **--method**, followed by either *rot13*, *caesar* or *vigenere*. If not specified, the default action is set to be *rot13*. The currently supported methods and the way they work are the following:
 
@@ -45,4 +45,4 @@ Several methods can be used to encrypt or decrypt a message with Krypta. In orde
 | :---- | :---------- |
 | [`ROT13`](https://en.wikipedia.org/wiki/ROT13) | Shifts each letter of a text by 13 places. |
 | [`Caesar`](https://en.wikipedia.org/wiki/Caesar_cipher) | Shifts each letter of a text using a given numeric key. |
-| [`Vigenère`](https://en.wikipedia.org/wiki/Vigenère_cipher) | Shifts each letter of a text using a given text key. |
+| [`Vigenère`](https://en.wikipedia.org/wiki/Vigenère_cipher) | Shifts each letter of a text using a given textual key. |
