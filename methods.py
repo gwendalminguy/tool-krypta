@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!./venv/bin/python3
 """
 methods.py
 Module containing functions to encrypt and decrypt messages.

@@ -1,10 +1,27 @@
-#!/usr/bin/python3
+#!./venv/bin/python3
+import sys
+import argparse
+import customtkinter
 rot13 = __import__('methods').rot13
 caesar = __import__('methods').caesar
 vigenere = __import__('methods').vigenere
 
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-i", "--interface", default="CLI", type=str, help="interface to use")
+    args = parser.parse_args()
+    interface = (args.interface).upper()
+
+    if interface == "CLI":
+        CLI()
+    elif interface == "GUI":
+        GUI()
+    else:
+        sys.exit("Interface must be either CLI or GUI")
+
+
+def CLI():
     text = input("Text: ").strip()
     while True:
         method = input("Method: ([R]OT13 ; [C]AESAR ; [V]IGENERE) ").strip().lower()
@@ -26,6 +43,12 @@ def main():
         break
 
     print(krypta(method, text, key, action))
+
+
+def GUI():
+    app = customtkinter.CTk()
+    app.mainloop()
+    print("Upcoming")
 
 
 def krypta(method, text, key, action):

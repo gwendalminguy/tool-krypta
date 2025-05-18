@@ -12,7 +12,7 @@ The project contains several files, which are the following:
 
 | Files | Description |
 | :---- | :---------- |
-| [`methods.py`](https://github.com/gwendalminguy/tool-krypta/blob/main/methods.py) | The python file containing all methods. |
+| [`methods.py`](https://github.com/gwendalminguy/tool-krypta/blob/main/methods.py) | The module containing functions for all  methods. |
 | [`requirements.txt`](https://github.com/gwendalminguy/tool-krypta/blob/main/requirements.txt) | The text file listing requirements for installation. |
 | [`script.py`](https://github.com/gwendalminguy/tool-krypta/blob/main/script.py) | The python file containing the script. |
 
@@ -53,6 +53,10 @@ Krypta can be launched using the following command:
 ```
 $ ./script.py
 ```
+
+### Interface:
+
+...
 
 ### Methods:
 
