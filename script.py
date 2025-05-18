@@ -8,16 +8,18 @@ vigenere = __import__('methods').vigenere
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("-a", "--action", default="encrypt", type=str, help="encrypt or decrypt")
+    parser.add_argument("-a", "--action", choices=["encrypt", "decrypt"],
+                        default="encrypt", type=str, help="encrypt or decrypt")
+    parser.add_argument("-m", "--method", choices=["rot13", "caesar", "vigenere"],
+                        default="rot13", type=str, help="method to use")
     args = parser.parse_args()
-    action = (args.action).lower()
+    action = args.action
+    method = args.method
 
     if action == "encrypt":
         action = 1
     elif action == "decrypt":
         action = -1
-    else:
-        sys.exit("Action must be either <encrypt> or <decrypt>")
 
     try:
         text = input("Text: ").strip()
@@ -25,17 +27,19 @@ def main():
         sys.exit("Script Interruption")
 
     while True:
-        try:
-            method = input("Method: ([R]OT13 ; [C]AESAR ; [V]IGÈNERE) ").strip().lower()
-        except EOFError:
-            sys.exit("Script Interruption")
-        if method not in "rcv":
-            print("Invalid method: please choose one of the supported methods.")
-            continue
-        elif method != 'r':
-            key = input("Key: ")
+        if method == "rot13":
+            key = None
         else:
-            key = 0
+            try:
+                key = input("Key: ")
+            except EOFError:
+                sys.exit("Script Interruption")
+        if method == "caesar":
+            try:
+                key = int(key)
+            except ValueError:
+                print("Invalid Key")
+                continue
         break
 
     print(krypta(method, text, key, action))
@@ -53,12 +57,12 @@ def krypta(method, text, key, action):
 
     Return: the resulting string
     """
-    if method == 'r':
+    if method == 'rot13':
         return rot13(text)
-    elif method == 'c':
+    elif method == 'caesar':
         key = int(key)
         return caesar(text, key, action)
-    elif method == 'v':
+    elif method == 'vigenere':
         return vigenere(text, key, action)
 
 
