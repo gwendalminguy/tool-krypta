@@ -68,4 +68,32 @@ def vigenere(text, key, action):
 
     Return: the resulting string
     """
-    return text
+    i = 0
+    num = []
+    result = ""
+    for char in key.lower():
+        if 97 <= ord(char) <= 122:
+            number = action * (ord(char) % 97)
+            num.append(number)
+
+    length = len(num)
+    for char in text:
+        if i >= length:
+            i = 0
+        if 65 <= ord(char) <= 90:
+            char = chr(ord(char) + num[i])
+            i += 1
+            if ord(char) > 90:
+                char = chr(ord(char) - 26)
+            elif ord(char) < 65:
+                char = chr(ord(char) + 26)
+        elif 97 <= ord(char) <= 122:
+            char = chr(ord(char) + num[i])
+            i += 1
+            if ord(char) > 122:
+                char = chr(ord(char) - 26)
+            elif ord(char) < 97:
+                char = chr(ord(char) + 26)
+        result += char
+
+    return result

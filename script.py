@@ -30,7 +30,7 @@ def main():
         except EOFError:
             sys.exit("Script Interruption")
         if method not in "rcv":
-            print("Please choose one of the supported methods.")
+            print("Invalid method: please choose one of the supported methods.")
             continue
         elif method != 'r':
             key = input("Key: ")
