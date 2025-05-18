@@ -59,7 +59,7 @@ def caesar(text, key, action):
 
 def vigenere(text, key, action):
     """
-    Encrypts or decrypts a text using Vigenere method. (upcoming)
+    Encrypts or decrypts a text using Vigenere method.
 
     Parameters:
     text (str): text to encrypt or decrypt
@@ -77,6 +77,8 @@ def vigenere(text, key, action):
             num.append(number)
 
     length = len(num)
+    if length == 0:
+        return text
     for char in text:
         if i >= length:
             i = 0

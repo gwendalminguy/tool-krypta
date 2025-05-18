@@ -50,10 +50,10 @@ def krypta(method, text, key, action):
     Encrypts or decrypts a text using a given method and key.
 
     Parameters:
-    method (str):
-    text (str):
-    key (str):
-    action (int):
+    method (str): method to use
+    text (str): text to encrypt or decrypt
+    key (str/int): key to use
+    action (int): 1 to encrypt ; -1 to decrypt
 
     Return: the resulting string
     """
