@@ -1,7 +1,6 @@
-#!./venv/bin/python3
+#!/usr/bin/python3
 import sys
 import argparse
-import customtkinter
 rot13 = __import__('methods').rot13
 caesar = __import__('methods').caesar
 vigenere = __import__('methods').vigenere
@@ -9,46 +8,37 @@ vigenere = __import__('methods').vigenere
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("-i", "--interface", default="CLI", type=str, help="interface to use")
+    parser.add_argument("-a", "--action", default="encrypt", type=str, help="encrypt or decrypt")
     args = parser.parse_args()
-    interface = (args.interface).upper()
+    action = (args.action).lower()
 
-    if interface == "CLI":
-        CLI()
-    elif interface == "GUI":
-        GUI()
+    if action == "encrypt":
+        action = 1
+    elif action == "decrypt":
+        action = -1
     else:
-        sys.exit("Interface must be either CLI or GUI")
+        sys.exit("Action must be either <encrypt> or <decrypt>")
 
+    try:
+        text = input("Text: ").strip()
+    except EOFError:
+        sys.exit("Script Interruption")
 
-def CLI():
-    text = input("Text: ").strip()
     while True:
-        method = input("Method: ([R]OT13 ; [C]AESAR ; [V]IGENERE) ").strip().lower()
+        try:
+            method = input("Method: ([R]OT13 ; [C]AESAR ; [V]IGÈNERE) ").strip().lower()
+        except EOFError:
+            sys.exit("Script Interruption")
         if method not in "rcv":
             print("Please choose one of the supported methods.")
             continue
-        elif method == 'r':
-            key = 0
-            action = 0
-        else:
+        elif method != 'r':
             key = input("Key: ")
-            action = input("Method: ([E]NCRYPT ; [D]ECRYPT) ").strip().lower()
-            if action == 'e':
-                action = 1
-            elif action == 'd':
-                action = -1
-            else:
-                continue
+        else:
+            key = 0
         break
 
     print(krypta(method, text, key, action))
-
-
-def GUI():
-    app = customtkinter.CTk()
-    app.mainloop()
-    print("Upcoming")
 
 
 def krypta(method, text, key, action):
