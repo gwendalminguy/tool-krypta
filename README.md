@@ -32,6 +32,14 @@ $ cd tool-krypta/
 $ ./script.py
 ```
 
+### Action:
+
+Krypta can be used to *encrypt* or *decrypt* a text message. In order to choose the action to execute, it can be called as a command-line argument with **-a** or **--action**, followed by either *encrypt* or *decrypt*. If not specified, the default action is set to be *encrypt*.
+
+```
+$ ./script.py -a <action>
+```
+
 ### Methods:
 
 Several methods can be used to encrypt or decrypt a message with Krypta. The currently supported methods and the way they work are the following:
