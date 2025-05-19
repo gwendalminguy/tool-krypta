@@ -21,6 +21,19 @@ def main():
     elif action == "decrypt":
         action = -1
 
+    print(krypta(method, action))
+
+
+def krypta(method, action):
+    """
+    Encrypts or decrypts a text using a given method.
+
+    Parameters:
+    method (str): method to use
+    action (int): 1 to encrypt ; -1 to decrypt
+
+    Return: the resulting string
+    """
     try:
         text = input("Text: ").strip()
     except EOFError:
@@ -42,21 +55,6 @@ def main():
                 continue
         break
 
-    print(krypta(method, text, key, action))
-
-
-def krypta(method, text, key, action):
-    """
-    Encrypts or decrypts a text using a given method and key.
-
-    Parameters:
-    method (str): method to use
-    text (str): text to encrypt or decrypt
-    key (str/int): key to use
-    action (int): 1 to encrypt ; -1 to decrypt
-
-    Return: the resulting string
-    """
     if method == 'rot13':
         return rot13(text)
     elif method == 'caesar':
