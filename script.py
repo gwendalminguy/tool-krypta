@@ -21,7 +21,7 @@ def main():
     elif action == "decrypt":
         action = -1
 
-    print(krypta(method, action))
+    print("Result: {}".format(krypta(method, action)))
 
 
 def krypta(method, action):
