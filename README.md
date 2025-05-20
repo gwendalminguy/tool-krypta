@@ -4,7 +4,7 @@ Krypta is a simple tool offering several common methods to encrypt or decrypt te
 
 ## 📋 Description
 
-...
+When launched, Krypta will prompt the user for the message to encrypt or decrypt, and if required, for the key to use. The result will then the be printed to the terminal. Command-line arguments can be used to choose the action to execute (encrypt or decrypt), and the method to use.
 
 ## 📂 Project Structure
 
