@@ -28,7 +28,7 @@ $ git clone https://github.com/gwendalminguy/tool-krypta.git
 Krypta can be launched using the following command:
 
 ```
-$ ./script.py -a <action> -m <method>
+$ ./script.py [-a <action>] [-m <method>]
 ```
 
 The user will be prompted for a text (the message to encrypt or decrypt), then a key (if required by the chosen method). The *caesar* method requires a numeric key, while the *vigenere* method requires a textual key. The text will then be encrypted or decrypted, and the result will be printed to the terminal.
